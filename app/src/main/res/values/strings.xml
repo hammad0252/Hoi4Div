@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">HoI4 Division Designer</string>
+    <string name="start">Start</string>
+    <string name="infantry">Infantry</string>
+    <string name="add">Add</string>
+    <string name="remove">Remove</string>
+    <string name="zero">0</string>
+    <string name="calculate">Calculate</string>
+    <string name="basics">Basics</string>
+    <string name="supply_use">Supply Use</string>
+    <string name="weight">Weight</string>
+    <string name="suppression">Suppression</string>
+    <string name="recovery_rate">Recovery Rate</string>
+    <string name="organization">Organization</string>
+    <string name="hp">HP</string>
+    <string name="speed">Speed</string>
+    <string name="combat">Combat</string>
+    <string name="soft_attack">Soft Attack</string>
+    <string name="hard_attack">Hard Attack</string>
+    <string name="defense">Defense</string>
+    <string name="breakthrough">Breakthrough</string>
+    <string name="piercing">Piercing</string>
+    <string name="combat_width">Combat Width</string>
+    <string name="hardness">Hardness</string>
+</resources>
