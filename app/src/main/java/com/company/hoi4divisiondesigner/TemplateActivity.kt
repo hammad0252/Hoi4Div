@@ -7,55 +7,70 @@ import com.company.hoi4divisiondesigner.databinding.ActivityTemplateBinding
 class TemplateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTemplateBinding
 
+    var infInfCount = 0.0
+    var infArtCount = 0.0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTemplateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var infInfCount = 0.0
 
         binding.infInfPlus.setOnClickListener{
             if (infInfCount < 25.0) {
                 infInfCount++
                 binding.infInfNum.text = "%.0f".format(infInfCount)
-                calculate(infInfCount)
+                calculate()
             }
         }
         binding.infInfMin.setOnClickListener{
             if (infInfCount != 0.0) {
                 infInfCount--
                 binding.infInfNum.text = "%.0f".format(infInfCount)
-                calculate(infInfCount)
+                calculate()
+            }
+        }
+
+        binding.infArtPlus.setOnClickListener{
+            if (infArtCount < 25.0) {
+                infArtCount++
+                binding.infArtNum.text = "%.0f".format(infArtCount)
+                calculate()
+            }
+        }
+        binding.infArtMin.setOnClickListener{
+            if (infArtCount != 0.0) {
+                infArtCount--
+                binding.infArtNum.text = "%.0f".format(infArtCount)
+                calculate()
             }
         }
     }
 
-    private fun calculate(infantryInfantry : Double) {
+    private fun calculate() {
 
-        val battalions = arrayOf(infantryInfantry, 0.0, 0.0)
-        val speed = arrayOf(4.0, 0.0, 0.0)
-        val hp = arrayOf(25.0, 0.0, 0.0)
+        val battalions = arrayOf(infInfCount, infArtCount, 0.0)
+        val speed = arrayOf(4.0, 4.0, 0.0)
+        val hp = arrayOf(25.0, 0.6, 0.0)
         val organization = arrayOf(60.0, 0.0, 0.0)
-        val recoveryRate = arrayOf(0.3, 0.0, 0.0)
+        val recoveryRate = arrayOf(0.3, 0.1, 0.0)
         val suppression = arrayOf(1.5, 0.0, 0.0)
-        val weight = arrayOf(0.5, 0.0, 0.0)
-        val supplyUse = arrayOf(0.07, 0.0, 0.0)
-        val softAttack = arrayOf(6.0, 0.0, 0.0)
-        val hardAttack = arrayOf(1.0, 0.0, 0.0)
-        val defence = arrayOf(23.1, 0.0, 0.0)
-        val breakthrough = arrayOf(3.15, 0.0, 0.0)
-        val combatWidth = arrayOf(2.0, 0.0, 0.0)
+        val weight = arrayOf(0.5, 0.5, 0.0)
+        val supplyUse = arrayOf(0.07, 0.2, 0.0)
+        val softAttack = arrayOf(6.0, 27.5, 0.0)
+        val hardAttack = arrayOf(1.0, 2.0, 0.0)
+        val defence = arrayOf(23.1, 10.0, 0.0)
+        val breakthrough = arrayOf(3.15, 6.0, 0.0)
+        val combatWidth = arrayOf(2.0, 3.0, 0.0)
         val hardness = arrayOf(0.0, 0.0, 0.0)
-        val piercings = arrayOf(4.0, 0.0, 0.0)
+        val piercings = arrayOf(4.0, 5.0, 0.0)
+        val manpower = arrayOf (1000.0, 500.0, 0.0)
+        val trainingTime = arrayOf(90.0, 120.0, 0.0)
+        val industryCost = arrayOf(50.0, 126.0, 0.0)
 
-        var divMinSpeed = 0.0;
-        for (item in battalions.indices){
-            if (battalions[item] != 0.0){
-                if (speed[item] > divMinSpeed) divMinSpeed = speed[item]
-            }
-        }
+        var divMinSpeed = minDiv(battalions, speed)
         binding.Speed.text = "%.1f".format(divMinSpeed)
         var hpDiv = arrayMultiply(battalions, hp)
-        binding.HP.text = "%.0f".format(hpDiv)
+        binding.HP.text = "%.1f".format(hpDiv)
         var organizationDiv = weightedAverage(battalions, organization)
         binding.Organization.text = "%.2f".format(organizationDiv)
         var recoveryRateDiv = weightedAverage(battalions, recoveryRate)
@@ -66,6 +81,13 @@ class TemplateActivity : AppCompatActivity() {
         binding.Weight.text = "%.1f".format(weightDiv)
         var supplyUseDiv = arrayMultiply(battalions, supplyUse)
         binding.SupplyUse.text = "%.2f".format(supplyUseDiv)
+        var manpowerDiv = arrayMultiply(battalions, manpower)
+        binding.Manpower.text = "%.0f".format(manpowerDiv)
+        var trainingDiv = maxDiv(battalions, trainingTime)
+        binding.Training.text = "%.0f".format(trainingDiv)
+        var icDiv = arrayMultiply(battalions, industryCost)
+        binding.Industry.text = "%.0f".format(icDiv)
+
         var softAttackDiv = arrayMultiply(battalions, softAttack)
         binding.softAttack.text = "%.1f".format(softAttackDiv)
         var hardAttackDiv = arrayMultiply(battalions, hardAttack)
@@ -79,12 +101,7 @@ class TemplateActivity : AppCompatActivity() {
         var hardnessDiv = weightedAverage(battalions, hardness)
         binding.hardness.text = "%.2f".format(hardnessDiv)
 
-        var divMaxPiercing = 0.0
-        for (item in battalions.indices){
-            if (battalions[item] != 0.0){
-                if (piercings[item] > divMaxPiercing) divMaxPiercing = piercings[item]
-            }
-        }
+        var divMaxPiercing = maxDiv(battalions, piercings)
         var piercingDiv = 0.4 * divMaxPiercing + 0.6 * weightedAverage(battalions, piercings)
         binding.piercing.text = "%.2f".format(piercingDiv)
     }
@@ -103,5 +120,25 @@ class TemplateActivity : AppCompatActivity() {
             total += bats[item] * attr[item]
         }
         return total
+    }
+
+    private fun maxDiv (bats: Array<Double>, attr: Array<Double>) : Double {
+        var maxattr = 0.0
+        for (item in bats.indices){
+            if (bats[item] != 0.0){
+                if (attr[item] > maxattr) maxattr = attr[item]
+            }
+        }
+        return maxattr
+    }
+
+    private fun minDiv (bats: Array<Double>, attr: Array<Double>) : Double {
+        var minattr = 100000.0
+        for (item in bats.indices){
+            if (bats[item] != 0.0){
+                if (attr[item] < minattr) minattr = attr[item]
+            }
+        }
+        return minattr
     }
 }

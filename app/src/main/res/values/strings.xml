@@ -22,4 +22,8 @@
     <string name="piercing">Piercing</string>
     <string name="combat_width">Combat Width</string>
     <string name="hardness">Hardness</string>
+    <string name="manpower">Manpower</string>
+    <string name="equipment">Equipment</string>
+    <string name="production_cost">Production Cost</string>
+    <string name="training_time">Training Time</string>
 </resources>
