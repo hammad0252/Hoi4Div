@@ -26,4 +26,14 @@
     <string name="equipment">Equipment</string>
     <string name="production_cost">Production Cost</string>
     <string name="training_time">Training Time</string>
+    <string name="artillery">Artillery</string>
+    <string name="add_infantry">Add Infantry</string>
+    <string name="add_artillery">Add Artillery</string>
+    <string name="remove_infantry">Remove Infantry</string>
+    <string name="remove_artillery">Remove Artillery</string>
+    <string name="anti_air">Anti-Air</string>
+    <string name="remove_anti_tank">Remove Anti-Tank</string>
+    <string name="add_anti_tank">Add Anti-Tank</string>
+    <string name="anti_tank">Anti-Tank</string>
+    <string name="air_attack">Air Attack</string>
 </resources>

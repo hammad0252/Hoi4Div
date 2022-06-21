@@ -9,6 +9,8 @@ class TemplateActivity : AppCompatActivity() {
 
     var infInfCount = 0.0
     var infArtCount = 0.0
+    var infAaCount = 0.0
+    var infAtCount = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,28 +46,59 @@ class TemplateActivity : AppCompatActivity() {
                 calculate()
             }
         }
+
+        binding.infAaPlus.setOnClickListener{
+            if (infAaCount < 25.0) {
+                infAaCount++
+                binding.infAaNum.text = "%.0f".format(infAaCount)
+                calculate()
+            }
+        }
+        binding.infAaMin.setOnClickListener{
+            if (infAaCount != 0.0) {
+                infAaCount--
+                binding.infAaNum.text = "%.0f".format(infAaCount)
+                calculate()
+            }
+        }
+
+        binding.infAtPlus.setOnClickListener{
+            if (infAtCount < 25.0) {
+                infAtCount++
+                binding.infAtNum.text = "%.0f".format(infAtCount)
+                calculate()
+            }
+        }
+        binding.infAtMin.setOnClickListener{
+            if (infAtCount != 0.0) {
+                infAtCount--
+                binding.infAtNum.text = "%.0f".format(infAtCount)
+                calculate()
+            }
+        }
     }
 
     private fun calculate() {
 
-        val battalions = arrayOf(infInfCount, infArtCount, 0.0)
-        val speed = arrayOf(4.0, 4.0, 0.0)
-        val hp = arrayOf(25.0, 0.6, 0.0)
-        val organization = arrayOf(60.0, 0.0, 0.0)
-        val recoveryRate = arrayOf(0.3, 0.1, 0.0)
-        val suppression = arrayOf(1.5, 0.0, 0.0)
-        val weight = arrayOf(0.5, 0.5, 0.0)
-        val supplyUse = arrayOf(0.07, 0.2, 0.0)
-        val softAttack = arrayOf(6.0, 27.5, 0.0)
-        val hardAttack = arrayOf(1.0, 2.0, 0.0)
-        val defence = arrayOf(23.1, 10.0, 0.0)
-        val breakthrough = arrayOf(3.15, 6.0, 0.0)
-        val combatWidth = arrayOf(2.0, 3.0, 0.0)
-        val hardness = arrayOf(0.0, 0.0, 0.0)
-        val piercings = arrayOf(4.0, 5.0, 0.0)
-        val manpower = arrayOf (1000.0, 500.0, 0.0)
-        val trainingTime = arrayOf(90.0, 120.0, 0.0)
-        val industryCost = arrayOf(50.0, 126.0, 0.0)
+        val battalions = arrayOf(infInfCount, infArtCount, infAaCount, infAtCount)
+        val speed = arrayOf(4.0, 4.0, 4.0, 4.0)
+        val hp = arrayOf(25.0, 0.6, 0.6, 0.6)
+        val organization = arrayOf(60.0, 0.0, 0.0, 0.0)
+        val recoveryRate = arrayOf(0.3, 0.1, 0.1, 0.0)
+        val suppression = arrayOf(1.5, 0.0, 0.0, 0.0)
+        val weight = arrayOf(0.5, 0.5, 0.5, 0.5)
+        val supplyUse = arrayOf(0.07, 0.2, 0.1, 0.1)
+        val softAttack = arrayOf(6.0, 27.5, 3.0, 4.0)
+        val hardAttack = arrayOf(1.0, 2.0, 7.0, 15.0)
+        val airAttack = arrayOf(0.0, 0.0, 19.0, 0.0)
+        val defence = arrayOf(23.1, 10.0, 4.0, 4.0)
+        val breakthrough = arrayOf(3.15, 6.0, 1.0, 0.0)
+        val combatWidth = arrayOf(2.0, 3.0, 1.0, 1.0)
+        val hardness = arrayOf(0.0, 0.0, 0.0, 0.0)
+        val piercings = arrayOf(4.0, 5.0, 25.0, 75.0)
+        val manpower = arrayOf (1000.0, 500.0, 500.0, 500.0)
+        val trainingTime = arrayOf(90.0, 120.0, 120.0, 120.0)
+        val industryCost = arrayOf(43.0, 126.0, 120.0, 144.0)
 
         var divMinSpeed = minDiv(battalions, speed)
         binding.Speed.text = "%.1f".format(divMinSpeed)
@@ -92,6 +125,8 @@ class TemplateActivity : AppCompatActivity() {
         binding.softAttack.text = "%.1f".format(softAttackDiv)
         var hardAttackDiv = arrayMultiply(battalions, hardAttack)
         binding.hardAttack.text = "%.1f".format(hardAttackDiv)
+        var airAttackDiv = arrayMultiply(battalions, airAttack)
+        binding.airAttack.text = "%.1f".format(airAttackDiv)
         var defenceDiv = arrayMultiply(battalions, defence)
         binding.defense.text = "%.2f".format(defenceDiv)
         var breakthroughDiv = arrayMultiply(battalions, breakthrough)

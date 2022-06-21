@@ -12,8 +12,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -53,31 +55,34 @@
                     android:id="@+id/inf_inf_num"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
                     android:layout_weight="1"
                     android:text="@string/zero"
                     android:textAlignment="center" />
 
-                <Button
+                <ImageView
                     android:id="@+id/inf_inf_plus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_add"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:clickable="true"
+                    android:contentDescription="@string/add_infantry"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/plus_7_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                <Button
+                <ImageView
                     android:id="@+id/inf_inf_min"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_more"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:clickable="true"
+                    android:contentDescription="@string/remove_infantry"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/minus_4_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             </LinearLayout>
 
@@ -99,37 +104,150 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="2"
-                    android:text="Artillery" />
+                    android:text="@string/artillery" />
 
                 <TextView
                     android:id="@+id/inf_art_num"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
                     android:layout_weight="1"
                     android:text="@string/zero"
                     android:textAlignment="center" />
 
-                <Button
+                <ImageView
                     android:id="@+id/inf_art_plus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_add"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:clickable="true"
+                    android:contentDescription="@string/add_artillery"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/plus_7_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                <Button
+                <ImageView
                     android:id="@+id/inf_art_min"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/remove_artillery"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/minus_4_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:dividerPadding="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <TextView
+                    android:id="@+id/inf_aa"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="@string/anti_air" />
+
+                <TextView
+                    android:id="@+id/inf_aa_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_more"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:text="@string/zero"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/inf_aa_plus"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_artillery"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/plus_7_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/inf_aa_min"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/remove_artillery"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/minus_4_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:dividerPadding="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+                <TextView
+                    android:id="@+id/inf_at"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="@string/anti_tank" />
+
+                <TextView
+                    android:id="@+id/inf_at_num"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/zero"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/inf_at_plus"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/add_anti_tank"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/plus_7_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/inf_at_min"
+                    android:layout_width="5dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:contentDescription="@string/remove_anti_tank"
+                    android:focusable="true"
+                    app:srcCompat="@drawable/minus_4_512"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             </LinearLayout>
 
@@ -142,7 +260,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
                 <TextView
                     android:id="@+id/textView"
@@ -348,6 +466,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/hardness" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/air_attack" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -394,6 +518,12 @@
 
                         <TextView
                             android:id="@+id/hardness"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/airAttack"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center" />
