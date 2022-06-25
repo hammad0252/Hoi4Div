@@ -21,235 +21,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/h_inf"
+            <Button
+                android:id="@+id/my_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/infantry"
+                android:layout_marginTop="10dp"
+                android:text="@string/add_battalion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:dividerPadding="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/h_inf">
-
-                <TextView
-                    android:id="@+id/inf_inf"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="@string/infantry" />
-
-                <TextView
-                    android:id="@+id/inf_inf_num"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
-
-                <ImageView
-                    android:id="@+id/inf_inf_plus"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/add_infantry"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/plus_7_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/inf_inf_min"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/remove_infantry"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/minus_4_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:dividerPadding="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-                <TextView
-                    android:id="@+id/inf_art"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="@string/artillery" />
-
-                <TextView
-                    android:id="@+id/inf_art_num"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
-
-                <ImageView
-                    android:id="@+id/inf_art_plus"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/add_artillery"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/plus_7_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/inf_art_min"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/remove_artillery"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/minus_4_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:dividerPadding="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-                <TextView
-                    android:id="@+id/inf_aa"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="@string/anti_air" />
-
-                <TextView
-                    android:id="@+id/inf_aa_num"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
-
-                <ImageView
-                    android:id="@+id/inf_aa_plus"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/add_artillery"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/plus_7_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/inf_aa_min"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/remove_artillery"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/minus_4_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:dividerPadding="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
-
-                <TextView
-                    android:id="@+id/inf_at"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="@string/anti_tank" />
-
-                <TextView
-                    android:id="@+id/inf_at_num"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
-
-                <ImageView
-                    android:id="@+id/inf_at_plus"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/add_anti_tank"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/plus_7_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/inf_at_min"
-                    android:layout_width="5dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:clickable="true"
-                    android:contentDescription="@string/remove_anti_tank"
-                    android:focusable="true"
-                    app:srcCompat="@drawable/minus_4_512"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/my_button" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -260,7 +48,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView1">
 
                 <TextView
                     android:id="@+id/textView"
