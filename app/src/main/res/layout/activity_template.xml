@@ -21,26 +21,83 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/my_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/add_battalion"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:id="@+id/horButtonLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/infBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/add_inf_battalion" />
+
+                <Button
+                    android:id="@+id/motBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/add_motorized_battalion" />
+
+                <Button
+                    android:id="@+id/armBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/add_armoured_battalion" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@+id/my_button" />
+                app:layout_constraintTop_toBottomOf="@+id/horButtonLayout">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/tech_year_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
+                tools:layout_editor_absoluteY="75dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/technology_year" />
+
+                <TextView
+                    android:id="@+id/tech_year"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/_1936"
+                    android:textAlignment="center"
+                    android:textColor="#757522" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/support_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -48,7 +105,111 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView1">
+                app:layout_constraintTop_toBottomOf="@+id/tech_year_layout">
+
+                <TextView
+                    android:id="@+id/support_companies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/support_companies"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_AA"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/anti_air" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_AT"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/anti_tank" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_art"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/artillery" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_rart"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/rocket_artillery" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_eng"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/engineer" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_fieldhosp"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/field_hospital" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_logistics"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/logistics" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_maintenance"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/maintenance" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_militaryPolice"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/military_police" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_cav"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/cavalry_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_mot"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/motorized_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_lightarmour"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/light_armour_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_armoured"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/armoured_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_signal"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/signal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/support_layout">
 
                 <TextView
                     android:id="@+id/textView"
@@ -103,6 +264,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/supply_use" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fuel_use" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fuel_capacity" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -164,6 +335,18 @@
 
                         <TextView
                             android:id="@+id/SupplyUse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/fuelUse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/fuelCap"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center" />
@@ -243,6 +426,11 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="@string/armour" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/piercing" />
 
                         <TextView
@@ -288,6 +476,12 @@
 
                         <TextView
                             android:id="@+id/breakthrough"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/armour"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center" />

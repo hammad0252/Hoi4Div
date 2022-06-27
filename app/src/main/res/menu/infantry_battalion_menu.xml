@@ -11,20 +11,23 @@
         android:title="@string/anti_air" />
     <item
         android:id="@+id/header4"
-        android:title="Rocket Artillery" />
+        android:title="@string/anti_tank" />
     <item
         android:id="@+id/header5"
-        android:title="Mountaineer" />
+        android:title="@string/rocket_artillery" />
     <item
         android:id="@+id/header6"
-        android:title="Paratrooper" />
+        android:title="@string/mountaineer" />
     <item
         android:id="@+id/header7"
-        android:title="Marine" />
+        android:title="@string/paratrooper" />
     <item
         android:id="@+id/header8"
-        android:title="Bicycle" />
+        android:title="@string/marine" />
     <item
         android:id="@+id/header9"
-        android:title="Penal Battalion" />
+        android:title="@string/bicycle" />
+    <item
+        android:id="@+id/header10"
+        android:title="@string/penal_battalion" />
 </menu>

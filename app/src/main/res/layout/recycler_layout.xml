@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:text="Penal Battalions" />
+            android:text="@string/penal_battalion" />
 
         <TextView
             android:id="@+id/batQuant"
@@ -41,10 +41,10 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:clickable="true"
-            android:contentDescription="Add Penal Battalions"
             android:focusable="true"
             app:srcCompat="@drawable/plus_7_512"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:contentDescription="@string/add_battalion" />
 
         <ImageView
             android:id="@+id/delBat"
@@ -53,10 +53,10 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:clickable="true"
-            android:contentDescription="Remove Penal Battalions"
             android:focusable="true"
             app:srcCompat="@drawable/minus_4_512"
-            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:contentDescription="@string/remove_battalion" />
 
     </LinearLayout>
 

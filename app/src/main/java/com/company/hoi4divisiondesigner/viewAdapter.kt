@@ -49,10 +49,9 @@ class viewAdapter (context: Context, var batList: ArrayList<batData>) : Recycler
         val batQuant: TextView = itemView.findViewById(R.id.batQuant)
         val addBat : ImageView = itemView.findViewById(R.id.addBat)
         val delBat : ImageView = itemView.findViewById(R.id.delBat)
-        //val delRow : ImageView = itemView.findViewById(R.id.delRow)
     }
 
-    private fun removeItem(position: Int, holder : ViewHolder, model: ArrayList<batData>) {
+    private fun removeItem(position : Int, holder : ViewHolder, model: ArrayList<batData>) {
         val newPosition: Int = holder.adapterPosition
         model.removeAt(newPosition)
         notifyItemRemoved(newPosition)
