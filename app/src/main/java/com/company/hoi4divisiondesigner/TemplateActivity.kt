@@ -37,6 +37,12 @@ class TemplateActivity : AppCompatActivity() {
     private var amtracCount = 0
     private var armCarCount = 0
 
+    private var lightTankCount = 0
+    private var mediumTankCount = 0
+    private var heavyTankCount = 0
+    private var superHeavyTankCount = 0
+    private var modernTankCount = 0
+
     private val speed = mutableListOf<Double>()
     private val hp = mutableListOf<Double>()
     private val organization = mutableListOf<Double>()
@@ -73,6 +79,10 @@ class TemplateActivity : AppCompatActivity() {
 
         binding.motBatButton.setOnClickListener{
             addMotBat(binding.motBatButton)
+        }
+
+        binding.armBatButton.setOnClickListener{
+            addArmBat(binding.armBatButton)
         }
 
         binding.techYear.text = techYear.toString()
@@ -251,9 +261,25 @@ class TemplateActivity : AppCompatActivity() {
         armCarCount = if (itemIndex(data, getString(R.string.armoured_car)) != 500) {
             data[itemIndex(data, getString(R.string.armoured_car))].batQuant
         } else 0
+        lightTankCount = if (itemIndex(data, getString(R.string.light_tank)) != 500) {
+            data[itemIndex(data, getString(R.string.light_tank))].batQuant
+        } else 0
+        mediumTankCount = if (itemIndex(data, getString(R.string.medium_tank)) != 500) {
+            data[itemIndex(data, getString(R.string.medium_tank))].batQuant
+        } else 0
+        heavyTankCount = if (itemIndex(data, getString(R.string.heavy_tank)) != 500) {
+            data[itemIndex(data, getString(R.string.heavy_tank))].batQuant
+        } else 0
+        superHeavyTankCount = if (itemIndex(data, getString(R.string.super_heavy_tank)) != 500) {
+            data[itemIndex(data, getString(R.string.super_heavy_tank))].batQuant
+        } else 0
+        modernTankCount = if (itemIndex(data, getString(R.string.modern_tank)) != 500) {
+            data[itemIndex(data, getString(R.string.modern_tank))].batQuant
+        } else 0
 
         val battalions = arrayOf(infInfCount, infArtCount, infAaCount, infAtCount, infRartCount, infMountCount, infParaCount, infMarCount, infBikeCount, infPenCount,
-                                motInfCount, motArtCount, motAaCount, motAtCount, motRartCount, motCavCount, motCamCount, mechInfCount, amtracCount, armCarCount)
+                                motInfCount, motArtCount, motAaCount, motAtCount, motRartCount, motCavCount, motCamCount, mechInfCount, amtracCount, armCarCount,
+                                lightTankCount, mediumTankCount, heavyTankCount, superHeavyTankCount, modernTankCount)
 
         var divMinSpeed = minDiv(battalions, speed)
         var hpDiv = arrayMultiply(battalions, hp)
@@ -704,6 +730,32 @@ class TemplateActivity : AppCompatActivity() {
                 }
                 R.id.header10 -> {
                     headers(getString(R.string.armoured_car), armCarCount)
+                }
+            }
+            true
+        })
+        popup.show()
+    }
+
+    private fun addArmBat(view: View) {
+        val popup = PopupMenu(this, view)
+        popup.inflate(R.menu.armoured_battalion_menu)
+        popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+            when (item!!.itemId) {
+                R.id.header1 -> {
+                    headers(getString(R.string.light_tank), lightTankCount)
+                }
+                R.id.header2 -> {
+                    headers(getString(R.string.medium_tank), mediumTankCount)
+                }
+                R.id.header3 -> {
+                    headers(getString(R.string.heavy_tank), heavyTankCount)
+                }
+                R.id.header4 -> {
+                    headers(getString(R.string.super_heavy_tank), superHeavyTankCount)
+                }
+                R.id.header5 -> {
+                    headers(getString(R.string.modern_tank), modernTankCount)
                 }
             }
             true

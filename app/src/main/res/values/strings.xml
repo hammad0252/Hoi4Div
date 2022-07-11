@@ -82,4 +82,9 @@
     <string name="armoured_recon">Armoured Recon</string>
     <string name="signal">Signal</string>
     <string name="add_armoured_battalion">Add Armoured Battalion</string>
+    <string name="light_tank">Light Tank</string>
+    <string name="medium_tank">Medium Tank</string>
+    <string name="heavy_tank">Heavy Tank</string>
+    <string name="super_heavy_tank">Super Heavy Tank</string>
+    <string name="modern_tank">Modern Tank</string>
 </resources>

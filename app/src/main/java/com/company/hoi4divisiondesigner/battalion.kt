@@ -88,8 +88,28 @@ val hardness : Double){
             0.8, 0.14,0.8,23.04,500.0,180.0,240.0,6.0,2.0,
             0.0,2.0,12.0,3.0,6.0,2.0,65.0)
 
+        private val lightTank = battalion(R.string.light_tank.toString(),12.0,2.0,10.0,0.3,2.5,
+        1.0, 0.2, 2.4, 69.12, 500.0, 180.0, 540.0, 16.0, 6.0,
+        0.0, 5.0, 36.0, 15.0, 30.0, 2.0, 80.0)
+
+        private val mediumTank = battalion(R.string.medium_tank.toString(), 8.0, 2.0, 10.0, 0.3, 2.5,
+        1.25, 0.22, 3.6, 103.68, 500.0, 180.0, 600.0, 19.0, 14.0,
+        0.0,5.0, 36.0, 60.0, 61.0, 2.0, 90.0)
+
+        private val heavyTank = battalion(R.string.heavy_tank.toString(), 5.0, 2.0, 10.0, 0.3, 2.5,
+            1.5,0.3, 4.14, 126.72, 500.0, 180.0, 1000.0, 15.0, 12.0,
+        0.0, 6.0, 36.0, 70.0, 35.0,2.0, 95.0)
+
+        private val superHeavyTank = battalion(R.string.heavy_tank.toString(), 4.0, 2.0,10.0,0.3,2.5,
+            1.75, 0.4, 10.0,288.0,500.0,180.0,1500.0, 38.0,45.0,
+        0.0,10.0,74.0,145.0,146.0,2.0,99.0)
+
+        private val modernTank = battalion(R.string.modern_tank.toString(), 10.0, 2.0, 10.0, 0.3,2.5,
+        1.5,0.25,5.0,144.0,500.0,180.0,1400.0,40.0,32.0,
+        0.0,10.0,84.0,130.0,131.0,2.0,98.0)
+
         val allBats = arrayOf(infantry, artillery, antiAir, antiTank, rocketArtillery, mountaineer, paratroopers, marines, bicycle, penal,
         motInfantry, motArtillery, motAntiAir, motAntiTank, motRocketArtillery, cavalry, camel, mechInfantry,
-            amtrac, armouredCar)
+            amtrac, armouredCar, lightTank, mediumTank, heavyTank, superHeavyTank, modernTank)
     }
 }
