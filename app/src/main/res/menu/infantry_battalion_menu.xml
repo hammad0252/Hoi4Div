@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/header1"
+        android:title="@string/infantry" />
+    <item
+        android:id="@+id/header2"
+        android:title="@string/artillery" />
+    <item
+        android:id="@+id/header3"
+        android:title="@string/anti_air" />
+    <item
+        android:id="@+id/header4"
+        android:title="@string/anti_tank" />
+    <item
+        android:id="@+id/header5"
+        android:title="@string/rocket_artillery" />
+    <item
+        android:id="@+id/header6"
+        android:title="@string/mountaineer" />
+    <item
+        android:id="@+id/header7"
+        android:title="@string/paratrooper" />
+    <item
+        android:id="@+id/header8"
+        android:title="@string/marine" />
+    <item
+        android:id="@+id/header9"
+        android:title="@string/bicycle" />
+    <item
+        android:id="@+id/header10"
+        android:title="@string/penal_battalion" />
+</menu>

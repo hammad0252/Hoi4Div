@@ -12,129 +12,92 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/h_inf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/infantry"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <LinearLayout
-                android:id="@+id/linearLayout4"
+                android:id="@+id/horButtonLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:dividerPadding="0dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/h_inf">
-
-                <TextView
-                    android:id="@+id/inf_inf"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="@string/infantry" />
-
-                <TextView
-                    android:id="@+id/inf_inf_num"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/inf_inf_plus"
+                    android:id="@+id/infBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_add"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:text="@string/add_inf_battalion" />
 
                 <Button
-                    android:id="@+id/inf_inf_min"
+                    android:id="@+id/motBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_more"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:text="@string/add_motorized_battalion" />
 
+                <Button
+                    android:id="@+id/armBatButton"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/add_armoured_battalion" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearLayout3"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:dividerPadding="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/horButtonLayout">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/tech_year_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView1"
+                tools:layout_editor_absoluteY="75dp">
 
                 <TextView
-                    android:id="@+id/inf_art"
-                    android:layout_width="0dp"
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="Artillery" />
+                    android:layout_weight="1"
+                    android:text="@string/technology_year" />
 
                 <TextView
-                    android:id="@+id/inf_art_num"
-                    android:layout_width="0dp"
+                    android:id="@+id/tech_year"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/zero"
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/inf_art_plus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:text="@string/_1936"
                     android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_add"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
-                <Button
-                    android:id="@+id/inf_art_min"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAlignment="center"
-                    app:icon="@android:drawable/ic_menu_more"
-                    app:iconGravity="textEnd"
-                    app:iconPadding="0dp"
-                    tools:ignore="SpeakableTextPresentCheck" />
-
+                    android:textColor="#757522" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/support_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -142,7 +105,111 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+                app:layout_constraintTop_toBottomOf="@+id/tech_year_layout">
+
+                <TextView
+                    android:id="@+id/support_companies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/support_companies"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_AA"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/anti_air" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_AT"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/anti_tank" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_art"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/artillery" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_rart"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/rocket_artillery" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_eng"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/engineer" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_fieldhosp"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/field_hospital" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_logistics"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/logistics" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_maintenance"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/maintenance" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_militaryPolice"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/military_police" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_cav"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/cavalry_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_mot"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/motorized_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_lightarmour"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/light_armour_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_recon_armoured"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/armoured_recon" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/support_signal"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="@string/signal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/support_layout">
 
                 <TextView
                     android:id="@+id/textView"
@@ -197,6 +264,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/supply_use" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fuel_use" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fuel_capacity" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -258,6 +335,18 @@
 
                         <TextView
                             android:id="@+id/SupplyUse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/fuelUse"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/fuelCap"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center" />
@@ -337,6 +426,11 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="@string/armour" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:text="@string/piercing" />
 
                         <TextView
@@ -348,6 +442,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/hardness" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/air_attack" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -381,6 +481,12 @@
                             android:textAlignment="center" />
 
                         <TextView
+                            android:id="@+id/armour"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
                             android:id="@+id/piercing"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -394,6 +500,12 @@
 
                         <TextView
                             android:id="@+id/hardness"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center" />
+
+                        <TextView
+                            android:id="@+id/airAttack"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textAlignment="center" />
