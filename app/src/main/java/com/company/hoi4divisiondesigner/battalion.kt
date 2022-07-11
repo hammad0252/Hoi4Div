@@ -1,10 +1,10 @@
 package com.company.hoi4divisiondesigner
 
 data class battalion (val name : String, val speed: Double, val hp : Double, val organization : Double, val recoveryRate : Double,
-val suppression : Double, val weight : Double, val supplyUse : Double, val fuelUse : Double, val fuelCap : Double,
-val manpower : Double, val trainingTime : Double, val industryCost : Double, val softAttack : Double, val hardAttack : Double,
-val airAttack : Double, val defence : Double, val breakthrough : Double, val armour : Double, val piercing : Double, val combatWidth : Double,
-val hardness : Double){
+                      val suppression : Double, val weight : Double, val supplyUse : Double, val fuelUse : Double, val fuelCap : Double,
+                      val manpower : Double, val trainingTime : Double, var industryCost : Double, var softAttack : Double, var hardAttack : Double,
+                      val airAttack : Double, var defence : Double, var breakthrough : Double, val armour : Double, var piercing : Double, val combatWidth : Double,
+                      val hardness : Double){
 
     companion object {
         private val infantry = battalion(R.string.infantry.toString(), 4.0, 25.0, 60.0, 0.3, 1.5,
@@ -108,8 +108,67 @@ val hardness : Double){
         1.5,0.25,5.0,144.0,500.0,180.0,1400.0,40.0,32.0,
         0.0,10.0,84.0,130.0,131.0,2.0,98.0)
 
-        val allBats = arrayOf(infantry, artillery, antiAir, antiTank, rocketArtillery, mountaineer, paratroopers, marines, bicycle, penal,
-        motInfantry, motArtillery, motAntiAir, motAntiTank, motRocketArtillery, cavalry, camel, mechInfantry,
-            amtrac, armouredCar, lightTank, mediumTank, heavyTank, superHeavyTank, modernTank)
+        fun battalionData (year : Int) : Array<battalion>{
+            if (year >= 1938){
+                infantry.softAttack = 6.3
+                infantry.defence = 24.4
+                infantry.breakthrough = 3.3
+                if (year >= 1939){
+                    infantry.softAttack = 9.45
+                    infantry.hardAttack = 1.5
+                    infantry.defence = 30.8
+                    infantry.breakthrough = 4.4
+                    infantry.piercing = 5.0
+                    infantry.industryCost = 58.0
+                    if (year >= 1940){
+                        infantry.softAttack = 9.9
+                        infantry.defence = 32.2
+                        infantry.breakthrough = 4.6
+                        if (year >= 1942){
+                            infantry.softAttack = 13.2
+                            infantry.hardAttack = 2.5
+                            infantry.defence = 40.8
+                            infantry.breakthrough = 6.0
+                            infantry.piercing = 20.0
+                            infantry.industryCost = 69.0
+                            if (year >= 1943){
+                                infantry.hardAttack = 3.0
+                                infantry.piercing = 30.0
+                                if (year >= 1944){
+                                    infantry.softAttack = 13.8
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayOf(
+                infantry,
+                artillery,
+                antiAir,
+                antiTank,
+                rocketArtillery,
+                mountaineer,
+                paratroopers,
+                marines,
+                bicycle,
+                penal,
+                motInfantry,
+                motArtillery,
+                motAntiAir,
+                motAntiTank,
+                motRocketArtillery,
+                cavalry,
+                camel,
+                mechInfantry,
+                amtrac,
+                armouredCar,
+                lightTank,
+                mediumTank,
+                heavyTank,
+                superHeavyTank,
+                modernTank
+            )
+        }
     }
 }

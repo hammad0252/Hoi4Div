@@ -92,70 +92,6 @@ class TemplateActivity : AppCompatActivity() {
 
         binding.recyclerView1.adapter = adapter
 
-        for (items in battalion.allBats) {
-            speed.add(items.speed)
-        }
-        for (items in battalion.allBats) {
-            hp.add(items.hp)
-        }
-        for (items in battalion.allBats) {
-            organization.add(items.organization)
-        }
-        for (items in battalion.allBats) {
-            recoveryRate.add(items.recoveryRate)
-        }
-        for (items in battalion.allBats) {
-            suppression.add(items.suppression)
-        }
-        for (items in battalion.allBats) {
-            weight.add(items.weight)
-        }
-        for (items in battalion.allBats) {
-            supplyUse.add(items.supplyUse)
-        }
-        for (items in battalion.allBats) {
-            fuelUse.add(items.fuelUse)
-        }
-        for (items in battalion.allBats) {
-            fuelCap.add(items.fuelCap)
-        }
-        for (items in battalion.allBats) {
-            manpower.add(items.manpower)
-        }
-        for (items in battalion.allBats) {
-            trainingTime.add(items.trainingTime)
-        }
-        for (items in battalion.allBats) {
-            industryCost.add(items.industryCost)
-        }
-        for (items in battalion.allBats) {
-            softAttack.add(items.softAttack)
-        }
-        for (items in battalion.allBats) {
-            hardAttack.add(items.hardAttack)
-        }
-        for (items in battalion.allBats) {
-            airAttack.add(items.airAttack)
-        }
-        for (items in battalion.allBats) {
-            defence.add(items.defence)
-        }
-        for (items in battalion.allBats) {
-            breakthrough.add(items.breakthrough)
-        }
-        for (items in battalion.allBats) {
-            armour.add(items.armour)
-        }
-        for (items in battalion.allBats) {
-            piercings.add(items.piercing)
-        }
-        for (items in battalion.allBats) {
-            combatWidth.add(items.combatWidth)
-        }
-        for (items in battalion.allBats) {
-            hardness.add(items.hardness)
-        }
-
         binding.supportAA.setOnClickListener{
             calculate()
         }
@@ -201,6 +137,71 @@ class TemplateActivity : AppCompatActivity() {
     }
 
     internal fun calculate() {
+        val battalionsData = battalion.battalionData(techYear)
+        for (items in battalionsData) {
+            speed.add(items.speed)
+        }
+        for (items in battalionsData) {
+            hp.add(items.hp)
+        }
+        for (items in battalionsData) {
+            organization.add(items.organization)
+        }
+        for (items in battalionsData) {
+            recoveryRate.add(items.recoveryRate)
+        }
+        for (items in battalionsData) {
+            suppression.add(items.suppression)
+        }
+        for (items in battalionsData) {
+            weight.add(items.weight)
+        }
+        for (items in battalionsData) {
+            supplyUse.add(items.supplyUse)
+        }
+        for (items in battalionsData) {
+            fuelUse.add(items.fuelUse)
+        }
+        for (items in battalionsData) {
+            fuelCap.add(items.fuelCap)
+        }
+        for (items in battalionsData) {
+            manpower.add(items.manpower)
+        }
+        for (items in battalionsData) {
+            trainingTime.add(items.trainingTime)
+        }
+        for (items in battalionsData) {
+            industryCost.add(items.industryCost)
+        }
+        for (items in battalionsData) {
+            softAttack.add(items.softAttack)
+        }
+        for (items in battalionsData) {
+            hardAttack.add(items.hardAttack)
+        }
+        for (items in battalionsData) {
+            airAttack.add(items.airAttack)
+        }
+        for (items in battalionsData) {
+            defence.add(items.defence)
+        }
+        for (items in battalionsData) {
+            breakthrough.add(items.breakthrough)
+        }
+        for (items in battalionsData) {
+            armour.add(items.armour)
+        }
+        for (items in battalionsData) {
+            piercings.add(items.piercing)
+        }
+        for (items in battalionsData) {
+            combatWidth.add(items.combatWidth)
+        }
+        for (items in battalionsData) {
+            hardness.add(items.hardness)
+        }
+
         infInfCount = if (itemIndex(data, getString(R.string.infantry)) != 500) {
             data[itemIndex(data, getString(R.string.infantry))].batQuant
         } else 0
