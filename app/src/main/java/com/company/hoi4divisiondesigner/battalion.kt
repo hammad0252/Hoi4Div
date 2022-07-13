@@ -1,10 +1,12 @@
 package com.company.hoi4divisiondesigner
 
-data class battalion (val name : String, val speed: Double, val hp : Double, var organization : Double, val recoveryRate : Double,
+import kotlinx.coroutines.newSingleThreadContext
+
+data class battalion (val name : String, var speed: Double, val hp : Double, var organization : Double, val recoveryRate : Double,
                       val suppression : Double, val weight : Double, val supplyUse : Double, val fuelUse : Double, val fuelCap : Double,
                       val manpower : Double, val trainingTime : Double, var industryCost : Double, var softAttack : Double, var hardAttack : Double,
-                      var airAttack : Double, var defence : Double, var breakthrough : Double, val armour : Double, var piercing : Double, val combatWidth : Double,
-                      val hardness : Double){
+                      var airAttack : Double, var defence : Double, var breakthrough : Double, var armour : Double, var piercing : Double, val combatWidth : Double,
+                      var hardness : Double){
 
     companion object {
         private val infantry = battalion(R.string.infantry.toString(), 4.0, 25.0, 60.0, 0.3, 1.5,
@@ -121,13 +123,19 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                 bicycle.softAttack = 6.3
                 bicycle.defence = 24.2
                 bicycle.breakthrough = 3.3
+                motInfantry.softAttack = 6.3
+                motInfantry.defence = 24.2
+                motInfantry.breakthrough = 3.3
+                cavalry.softAttack = 6.3
+                cavalry.defence = 22.88
+                cavalry.breakthrough = 3.12
                 if (year >= 1939){
+                    infantry.industryCost = 58.0
                     infantry.softAttack = 9.45
                     infantry.hardAttack = 1.5
                     infantry.defence = 30.8
                     infantry.breakthrough = 4.4
                     infantry.piercing = 5.0
-                    infantry.industryCost = 58.0
                     artillery.industryCost = 144.0
                     artillery.softAttack = 33.0
                     artillery.defence = 15.0
@@ -162,6 +170,31 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                     bicycle.breakthrough = 4.4
                     bicycle.piercing = 5.0
                     bicycle.industryCost = 98.0
+                    motInfantry.industryCost = 183.0
+                    motInfantry.softAttack = 9.45
+                    motInfantry.hardAttack = 1.5
+                    motInfantry.defence = 30.8
+                    motInfantry.breakthrough = 4.4
+                    motInfantry.piercing = 5.0
+                    motArtillery.industryCost = 269.0
+                    motArtillery.softAttack = 33.0
+                    motArtillery.defence = 15.0
+                    motArtillery.breakthrough = 7.0
+                    motAntiAir.airAttack = 20.9
+                    motAntiTank.hardAttack = 16.5
+                    motAntiTank.piercing = 90.0
+                    cavalry.industryCost = 69.6
+                    cavalry.softAttack = 9.45
+                    cavalry.hardAttack = 1.5
+                    cavalry.defence = 29.12
+                    cavalry.breakthrough = 4.16
+                    cavalry.piercing = 5.0
+                    camel.industryCost = 87.0
+                    camel.softAttack = 9.0
+                    camel.hardAttack = 1.5
+                    camel.defence = 28.0
+                    camel.breakthrough = 4.0
+                    camel.piercing = 5.0
                     if (year >= 1940){
                         infantry.softAttack = 9.9
                         infantry.defence = 32.2
@@ -190,19 +223,42 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                         bicycle.softAttack = 9.9
                         bicycle.defence = 32.2
                         bicycle.breakthrough = 4.6
+                        motInfantry.softAttack = 9.9
+                        motInfantry.defence = 32.2
+                        motInfantry.breakthrough = 4.6
+                        motInfantry.hardness = 20.0
+                        motArtillery.softAttack = 36.0
+                        motAntiAir.industryCost = 275.0
+                        motAntiAir.softAttack = 3.5
+                        motAntiAir.hardAttack = 11.0
+                        motAntiAir.airAttack = 27.5
+                        motAntiAir.piercing = 60.0
+                        motAntiAir.hardness = 20.0
+                        motAntiTank.industryCost = 305.0
+                        motAntiTank.hardAttack = 24.2
+                        motAntiTank.piercing = 105.6
+                        motAntiTank.hardness = 20.0
+                        cavalry.softAttack = 9.9
+                        cavalry.defence = 29.68
+                        cavalry.breakthrough = 4.24
                         if (year >= 1941) {
                             artillery.softAttack = 39.0
                             antiAir.airAttack = 30.0
                             antiTank.hardAttack = 26.4
                             antiTank.piercing = 114.4
                             rocketArtillery.softAttack = 34.5
+                            motArtillery.softAttack = 39.0
+                            motAntiAir.airAttack = 30.0
+                            motAntiTank.hardAttack = 26.4
+                            motAntiTank.piercing = 114.4
+                            motRocketArtillery.softAttack = 41.4
                             if (year >= 1942) {
+                                infantry.industryCost = 69.0
                                 infantry.softAttack = 13.2
                                 infantry.hardAttack = 2.5
                                 infantry.defence = 40.8
                                 infantry.breakthrough = 6.0
                                 infantry.piercing = 20.0
-                                infantry.industryCost = 69.0
                                 artillery.industryCost = 162.0
                                 artillery.softAttack = 44.2
                                 artillery.defence = 18.0
@@ -235,6 +291,41 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                                 bicycle.defence = 40.8
                                 bicycle.breakthrough = 6.0
                                 bicycle.piercing = 20.0
+                                motInfantry.industryCost = 194.0
+                                motInfantry.softAttack = 13.2
+                                motInfantry.hardAttack = 2.5
+                                motInfantry.defence = 40.8
+                                motInfantry.breakthrough = 6.0
+                                motInfantry.piercing = 20.0
+                                motArtillery.industryCost = 287.0
+                                motArtillery.softAttack = 44.2
+                                motArtillery.defence = 18.0
+                                motArtillery.breakthrough = 8.0
+                                motAntiAir.airAttack = 32.5
+                                motAntiTank.hardAttack = 28.6
+                                motAntiTank.piercing = 123.2
+                                motRocketArtillery.softAttack = 46.8
+                                cavalry.industryCost = 82.8
+                                cavalry.softAttack = 13.2
+                                cavalry.hardAttack = 2.0
+                                cavalry.defence = 36.72
+                                cavalry.breakthrough = 5.4
+                                cavalry.piercing = 10.0
+                                camel.industryCost = 103.5
+                                camel.softAttack = 12.0
+                                camel.hardAttack = 2.0
+                                camel.defence = 34.0
+                                camel.breakthrough = 5.0
+                                camel.piercing = 10.0
+                                mechInfantry.speed = 10.0
+                                mechInfantry.industryCost = 569.0
+                                mechInfantry.softAttack = 14.4
+                                mechInfantry.hardAttack = 10.5
+                                mechInfantry.defence = 76.8
+                                mechInfantry.breakthrough = 12.0
+                                mechInfantry.armour = 15.0
+                                mechInfantry.piercing = 52.0
+                                mechInfantry.hardness = 70.0
                                 if (year >= 1943) {
                                     infantry.hardAttack = 3.0
                                     infantry.piercing = 30.0
@@ -262,6 +353,18 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                                     marines.piercing = 30.0
                                     bicycle.hardAttack = 3.0
                                     bicycle.piercing = 30.0
+                                    motInfantry.hardAttack = 3.0
+                                    motInfantry.piercing = 30.0
+                                    motArtillery.softAttack = 47.6
+                                    motAntiAir.industryCost = 305.0
+                                    motAntiAir.softAttack = 4.0
+                                    motAntiAir.hardAttack = 15.0
+                                    motAntiAir.airAttack = 41.6
+                                    motAntiAir.piercing = 88.0
+                                    motAntiTank.industryCost = 341.0
+                                    motAntiTank.hardAttack = 39.0
+                                    motAntiTank.piercing = 151.2
+                                    motRocketArtillery.softAttack = 57.6
                                     if (year >= 1944) {
                                         infantry.softAttack = 13.8
                                         rocketArtillery.softAttack = 51.3
@@ -272,10 +375,15 @@ data class battalion (val name : String, val speed: Double, val hp : Double, var
                                         marines.organization = 90.0
                                         marines.softAttack = 15.0
                                         bicycle.softAttack = 13.8
+                                        motInfantry.softAttack = 14.4
+                                        motRocketArtillery.softAttack = 59.4
+                                        cavalry.softAttack = 14.4
                                         if (year >= 1945){
                                             rocketArtillery.softAttack = 53.2
+                                            motRocketArtillery.softAttack = 61.2
                                             if (year >= 1946){
                                                 rocketArtillery.softAttack = 55.1
+                                                motRocketArtillery.softAttack = 63.0
                                             }
                                         }
                                     }
