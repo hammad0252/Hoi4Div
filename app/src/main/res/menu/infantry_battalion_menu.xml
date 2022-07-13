@@ -27,7 +27,4 @@
     <item
         android:id="@+id/header9"
         android:title="@string/bicycle" />
-    <item
-        android:id="@+id/header10"
-        android:title="@string/penal_battalion" />
 </menu>

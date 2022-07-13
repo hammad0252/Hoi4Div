@@ -1,9 +1,9 @@
 package com.company.hoi4divisiondesigner
 
-data class battalion (val name : String, val speed: Double, val hp : Double, val organization : Double, val recoveryRate : Double,
+data class battalion (val name : String, val speed: Double, val hp : Double, var organization : Double, val recoveryRate : Double,
                       val suppression : Double, val weight : Double, val supplyUse : Double, val fuelUse : Double, val fuelCap : Double,
                       val manpower : Double, val trainingTime : Double, var industryCost : Double, var softAttack : Double, var hardAttack : Double,
-                      val airAttack : Double, var defence : Double, var breakthrough : Double, val armour : Double, var piercing : Double, val combatWidth : Double,
+                      var airAttack : Double, var defence : Double, var breakthrough : Double, val armour : Double, var piercing : Double, val combatWidth : Double,
                       val hardness : Double){
 
     companion object {
@@ -43,10 +43,6 @@ data class battalion (val name : String, val speed: Double, val hp : Double, val
         private val bicycle = battalion(R.string.bicycle.toString(), 6.4, 25.0, 60.0, 0.3, 2.0,
             0.5, 0.07,0.0,0.0,1000.0,90.0,90.0,6.0,1.0,
             0.0,23.1,3.15,0.0,4.0,2.0,0.0)
-
-        private val penal = battalion(R.string.penal_battalion.toString(), 4.0, 0.6, 0.0, 0.1, 0.0,
-            0.5, 0.2,0.0,0.0,500.0,120.0,126.0,27.5,2.0,
-            0.0,10.0,6.0,0.0,5.0,3.0,0.0)
 
         private val motInfantry = battalion(R.string.motorized_infantry.toString(), 12.0, 25.0, 60.0, 0.3, 2.2,
             0.75, 0.11,1.2,34.56,1200.0,90.0,175.0,6.0,1.0,
@@ -111,8 +107,20 @@ data class battalion (val name : String, val speed: Double, val hp : Double, val
         fun battalionData (year : Int) : Array<battalion>{
             if (year >= 1938){
                 infantry.softAttack = 6.3
-                infantry.defence = 24.4
+                infantry.defence = 24.2
                 infantry.breakthrough = 3.3
+                mountaineer.softAttack = 6.3
+                mountaineer.defence = 23.32
+                mountaineer.breakthrough = 4.08
+                paratroopers.softAttack = 6.3
+                paratroopers.defence = 23.32
+                paratroopers.breakthrough = 3.18
+                marines.softAttack = 6.3
+                marines.defence = 23.32
+                marines.breakthrough = 4.08
+                bicycle.softAttack = 6.3
+                bicycle.defence = 24.2
+                bicycle.breakthrough = 3.3
                 if (year >= 1939){
                     infantry.softAttack = 9.45
                     infantry.hardAttack = 1.5
@@ -120,22 +128,157 @@ data class battalion (val name : String, val speed: Double, val hp : Double, val
                     infantry.breakthrough = 4.4
                     infantry.piercing = 5.0
                     infantry.industryCost = 58.0
+                    artillery.industryCost = 144.0
+                    artillery.softAttack = 33.0
+                    artillery.defence = 15.0
+                    artillery.breakthrough = 7.0
+                    antiAir.airAttack = 20.9
+                    antiTank.hardAttack = 16.5
+                    antiTank.piercing = 90.0
+                    mountaineer.organization = 75.0
+                    mountaineer.industryCost = 81.2
+                    mountaineer.softAttack = 9.9
+                    mountaineer.hardAttack = 1.5
+                    mountaineer.defence = 29.68
+                    mountaineer.breakthrough = 5.44
+                    mountaineer.piercing = 5.0
+                    paratroopers.organization = 75.0
+                    paratroopers.industryCost = 75.4
+                    paratroopers.softAttack = 9.9
+                    paratroopers.hardAttack = 1.5
+                    paratroopers.defence = 29.68
+                    paratroopers.breakthrough = 4.24
+                    paratroopers.piercing = 5.0
+                    marines.organization = 75.0
+                    marines.industryCost = 87.0
+                    marines.softAttack = 9.9
+                    marines.hardAttack = 1.5
+                    marines.defence = 29.68
+                    marines.breakthrough = 5.44
+                    marines.piercing = 5.0
+                    bicycle.softAttack = 9.45
+                    bicycle.hardAttack = 1.5
+                    bicycle.defence = 30.8
+                    bicycle.breakthrough = 4.4
+                    bicycle.piercing = 5.0
+                    bicycle.industryCost = 98.0
                     if (year >= 1940){
                         infantry.softAttack = 9.9
                         infantry.defence = 32.2
                         infantry.breakthrough = 4.6
-                        if (year >= 1942){
-                            infantry.softAttack = 13.2
-                            infantry.hardAttack = 2.5
-                            infantry.defence = 40.8
-                            infantry.breakthrough = 6.0
-                            infantry.piercing = 20.0
-                            infantry.industryCost = 69.0
-                            if (year >= 1943){
-                                infantry.hardAttack = 3.0
-                                infantry.piercing = 30.0
-                                if (year >= 1944){
-                                    infantry.softAttack = 13.8
+                        artillery.softAttack = 36.0
+                        antiAir.industryCost = 150.0
+                        antiAir.softAttack = 3.5
+                        antiAir.hardAttack = 11.0
+                        antiAir.airAttack = 27.5
+                        antiAir.piercing = 60.0
+                        antiTank.industryCost = 180.0
+                        antiTank.hardAttack = 24.2
+                        antiTank.piercing = 105.6
+                        mountaineer.organization = 80.0
+                        mountaineer.softAttack = 10.35
+                        mountaineer.defence = 31.92
+                        mountaineer.breakthrough = 5.56
+                        paratroopers.organization = 80.0
+                        paratroopers.softAttack = 10.35
+                        paratroopers.defence = 31.92
+                        paratroopers.breakthrough = 4.36
+                        marines.organization = 80.0
+                        marines.softAttack = 10.35
+                        marines.defence = 31.92
+                        marines.breakthrough = 5.56
+                        bicycle.softAttack = 9.9
+                        bicycle.defence = 32.2
+                        bicycle.breakthrough = 4.6
+                        if (year >= 1941) {
+                            artillery.softAttack = 39.0
+                            antiAir.airAttack = 30.0
+                            antiTank.hardAttack = 26.4
+                            antiTank.piercing = 114.4
+                            rocketArtillery.softAttack = 34.5
+                            if (year >= 1942) {
+                                infantry.softAttack = 13.2
+                                infantry.hardAttack = 2.5
+                                infantry.defence = 40.8
+                                infantry.breakthrough = 6.0
+                                infantry.piercing = 20.0
+                                infantry.industryCost = 69.0
+                                artillery.industryCost = 162.0
+                                artillery.softAttack = 44.2
+                                artillery.defence = 18.0
+                                artillery.breakthrough = 8.0
+                                antiAir.airAttack = 32.5
+                                antiTank.hardAttack = 28.6
+                                antiTank.piercing = 123.2
+                                rocketArtillery.softAttack = 39.0
+                                mountaineer.industryCost = 96.6
+                                mountaineer.softAttack = 13.8
+                                mountaineer.hardAttack = 2.5
+                                mountaineer.defence = 39.78
+                                mountaineer.breakthrough = 7.1
+                                mountaineer.piercing = 20.0
+                                paratroopers.industryCost = 89.7
+                                paratroopers.softAttack = 13.7
+                                paratroopers.hardAttack = 2.5
+                                paratroopers.defence = 39.78
+                                paratroopers.breakthrough = 5.6
+                                paratroopers.piercing = 20.0
+                                marines.industryCost = 103.5
+                                marines.softAttack = 13.8
+                                marines.hardAttack = 2.5
+                                marines.defence = 39.78
+                                marines.breakthrough = 7.1
+                                marines.piercing = 20.0
+                                bicycle.industryCost = 109.0
+                                bicycle.softAttack = 13.2
+                                bicycle.hardAttack = 2.5
+                                bicycle.defence = 40.8
+                                bicycle.breakthrough = 6.0
+                                bicycle.piercing = 20.0
+                                if (year >= 1943) {
+                                    infantry.hardAttack = 3.0
+                                    infantry.piercing = 30.0
+                                    artillery.softAttack = 47.6
+                                    antiAir.industryCost = 180.0
+                                    antiAir.softAttack = 4.0
+                                    antiAir.hardAttack = 15.0
+                                    antiAir.airAttack = 41.6
+                                    antiAir.piercing = 88.0
+                                    antiTank.industryCost = 216.0
+                                    antiTank.hardAttack = 39.0
+                                    antiTank.piercing = 151.2
+                                    rocketArtillery.industryCost = 180.0
+                                    rocketArtillery.softAttack = 49.4
+                                    rocketArtillery.defence = 15.0
+                                    rocketArtillery.breakthrough = 12.0
+                                    mountaineer.organization = 85.0
+                                    mountaineer.hardAttack = 3.0
+                                    mountaineer.piercing = 30.0
+                                    paratroopers.organization = 85.0
+                                    paratroopers.hardAttack = 3.0
+                                    paratroopers.piercing = 30.0
+                                    marines.organization = 85.0
+                                    marines.hardAttack = 3.0
+                                    marines.piercing = 30.0
+                                    bicycle.hardAttack = 3.0
+                                    bicycle.piercing = 30.0
+                                    if (year >= 1944) {
+                                        infantry.softAttack = 13.8
+                                        rocketArtillery.softAttack = 51.3
+                                        mountaineer.organization = 90.0
+                                        mountaineer.softAttack = 15.0
+                                        paratroopers.organization = 90.0
+                                        paratroopers.softAttack = 15.0
+                                        marines.organization = 90.0
+                                        marines.softAttack = 15.0
+                                        bicycle.softAttack = 13.8
+                                        if (year >= 1945){
+                                            rocketArtillery.softAttack = 53.2
+                                            if (year >= 1946){
+                                                rocketArtillery.softAttack = 55.1
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -152,7 +295,6 @@ data class battalion (val name : String, val speed: Double, val hp : Double, val
                 paratroopers,
                 marines,
                 bicycle,
-                penal,
                 motInfantry,
                 motArtillery,
                 motAntiAir,

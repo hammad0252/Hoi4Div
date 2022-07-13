@@ -2,6 +2,7 @@ package com.company.hoi4divisiondesigner
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
@@ -24,7 +25,6 @@ class TemplateActivity : AppCompatActivity() {
     private var infParaCount = 0
     private var infMarCount = 0
     private var infBikeCount = 0
-    private var infPenCount = 0
 
     private var motInfCount = 0
     private var motArtCount = 0
@@ -43,27 +43,27 @@ class TemplateActivity : AppCompatActivity() {
     private var superHeavyTankCount = 0
     private var modernTankCount = 0
 
-    private val speed = mutableListOf<Double>()
-    private val hp = mutableListOf<Double>()
-    private val organization = mutableListOf<Double>()
-    private val recoveryRate = mutableListOf<Double>()
-    private val suppression = mutableListOf<Double>()
-    private val weight = mutableListOf<Double>()
-    private val supplyUse = mutableListOf<Double>()
-    private val fuelUse = mutableListOf<Double>()
-    private val fuelCap = mutableListOf<Double>()
-    private val manpower = mutableListOf<Double>()
-    private val trainingTime = mutableListOf<Double>()
-    private val industryCost = mutableListOf<Double>()
-    private val softAttack = mutableListOf<Double>()
-    private val hardAttack = mutableListOf<Double>()
-    private val airAttack = mutableListOf<Double>()
-    private val defence = mutableListOf<Double>()
-    private val breakthrough = mutableListOf<Double>()
-    private val armour = mutableListOf<Double>()
-    private val piercings = mutableListOf<Double>()
-    private val combatWidth = mutableListOf<Double>()
-    private val hardness = mutableListOf<Double>()
+    private var speed = mutableListOf<Double>()
+    private var hp = mutableListOf<Double>()
+    private var organization = mutableListOf<Double>()
+    private var recoveryRate = mutableListOf<Double>()
+    private var suppression = mutableListOf<Double>()
+    private var weight = mutableListOf<Double>()
+    private var supplyUse = mutableListOf<Double>()
+    private var fuelUse = mutableListOf<Double>()
+    private var fuelCap = mutableListOf<Double>()
+    private var manpower = mutableListOf<Double>()
+    private var trainingTime = mutableListOf<Double>()
+    private var industryCost = mutableListOf<Double>()
+    private var softAttack = mutableListOf<Double>()
+    private var hardAttack = mutableListOf<Double>()
+    private var airAttack = mutableListOf<Double>()
+    private var defence = mutableListOf<Double>()
+    private var breakthrough = mutableListOf<Double>()
+    private var armour = mutableListOf<Double>()
+    private var piercings = mutableListOf<Double>()
+    private var combatWidth = mutableListOf<Double>()
+    private var hardness = mutableListOf<Double>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -138,6 +138,29 @@ class TemplateActivity : AppCompatActivity() {
 
     internal fun calculate() {
         val battalionsData = battalion.battalionData(techYear)
+
+        speed = mutableListOf<Double>()
+        hp = mutableListOf<Double>()
+        organization = mutableListOf<Double>()
+        recoveryRate = mutableListOf<Double>()
+        suppression = mutableListOf<Double>()
+        weight = mutableListOf<Double>()
+        supplyUse = mutableListOf<Double>()
+        fuelUse = mutableListOf<Double>()
+        fuelCap = mutableListOf<Double>()
+        manpower = mutableListOf<Double>()
+        trainingTime = mutableListOf<Double>()
+        industryCost = mutableListOf<Double>()
+        softAttack = mutableListOf<Double>()
+        hardAttack = mutableListOf<Double>()
+        airAttack = mutableListOf<Double>()
+        defence = mutableListOf<Double>()
+        breakthrough = mutableListOf<Double>()
+        armour = mutableListOf<Double>()
+        piercings = mutableListOf<Double>()
+        combatWidth = mutableListOf<Double>()
+        hardness = mutableListOf<Double>()
+
         for (items in battalionsData) {
             speed.add(items.speed)
         }
@@ -229,9 +252,6 @@ class TemplateActivity : AppCompatActivity() {
         infBikeCount = if (itemIndex(data, getString(R.string.bicycle)) != 500) {
             data[itemIndex(data, getString(R.string.bicycle))].batQuant
         } else 0
-        infPenCount = if (itemIndex(data, getString(R.string.penal_battalion)) != 500) {
-            data[itemIndex(data, getString(R.string.penal_battalion))].batQuant
-        } else 0
         motInfCount = if (itemIndex(data, getString(R.string.motorized_infantry)) != 500) {
             data[itemIndex(data, getString(R.string.motorized_infantry))].batQuant
         } else 0
@@ -278,7 +298,7 @@ class TemplateActivity : AppCompatActivity() {
             data[itemIndex(data, getString(R.string.modern_tank))].batQuant
         } else 0
 
-        val battalions = arrayOf(infInfCount, infArtCount, infAaCount, infAtCount, infRartCount, infMountCount, infParaCount, infMarCount, infBikeCount, infPenCount,
+        val battalions = arrayOf(infInfCount, infArtCount, infAaCount, infAtCount, infRartCount, infMountCount, infParaCount, infMarCount, infBikeCount,
                                 motInfCount, motArtCount, motAaCount, motAtCount, motRartCount, motCavCount, motCamCount, mechInfCount, amtracCount, armCarCount,
                                 lightTankCount, mediumTankCount, heavyTankCount, superHeavyTankCount, modernTankCount)
 
@@ -688,9 +708,6 @@ class TemplateActivity : AppCompatActivity() {
                 R.id.header9 -> {
                     headers(getString(R.string.bicycle), infBikeCount)
                 }
-                R.id.header10 -> {
-                    headers(getString(R.string.penal_battalion), infPenCount)
-                }
             }
             true
         })
@@ -810,6 +827,7 @@ class TemplateActivity : AppCompatActivity() {
                     binding.techYear.text = techYear.toString()
                 }
             }
+            calculate()
             true
         })
         popup.show()
