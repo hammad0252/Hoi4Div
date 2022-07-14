@@ -104,7 +104,12 @@ class TemplateActivity : AppCompatActivity() {
             calculate()
         }
         binding.supportRart.setOnClickListener{
-            calculate()
+            if (techYear > 1939) {
+                calculate()
+            } else {
+                Snackbar.make(findViewById(android.R.id.content), "Rocket Artillery is not available before 1940", Snackbar.LENGTH_LONG).show()
+                binding.supportRart.isChecked = false
+            }
         }
         binding.supportEng.setOnClickListener{
             calculate()
@@ -738,12 +743,12 @@ class TemplateActivity : AppCompatActivity() {
                     headers(getString(R.string.motorized_anti_tank), motAtCount)
                 }
                 R.id.header5 -> {
-                    if (techYear > 1938) {
+                    if (techYear > 1939) {
                         headers(getString(R.string.motorized_rocket_artillery), motRartCount)
                 } else {
                         Snackbar.make(
                             view,
-                            "Motorized Rocket Artillery is not available before 1939",
+                            "Motorized Rocket Artillery is not available before 1940",
                             Snackbar.LENGTH_LONG
                         ).show()
                     }

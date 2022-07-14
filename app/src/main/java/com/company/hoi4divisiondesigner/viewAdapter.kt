@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 
 class viewAdapter (context: Context, var batList: ArrayList<batData>) : RecyclerView.Adapter<viewAdapter.ViewHolder>()  {
 
@@ -21,12 +22,21 @@ class viewAdapter (context: Context, var batList: ArrayList<batData>) : Recycler
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.batName.text = batList[position].batName
             holder.batQuant.text = batList[position].batQuant.toString()
+            var totalBats = 0
+            for (item in batList.indices){
+                totalBats += batList[item].batQuant
+            }
 
             holder.addBat.setOnClickListener {
-                if (batList[position].batQuant < 25) {
+                if (totalBats < 25) {
                     batList[position].batQuant += 1
                     notifyDataSetChanged()
                     (mContext as TemplateActivity).calculate()
+                } else {
+                    Snackbar.make(holder.itemView,
+                        "Total Battalions must not exceed 25",
+                        Snackbar.LENGTH_LONG
+                    ).show()
                 }
             }
 
