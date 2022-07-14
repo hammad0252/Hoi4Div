@@ -738,7 +738,15 @@ class TemplateActivity : AppCompatActivity() {
                     headers(getString(R.string.motorized_anti_tank), motAtCount)
                 }
                 R.id.header5 -> {
-                    headers(getString(R.string.motorized_rocket_artillery), motRartCount)
+                    if (techYear > 1938) {
+                        headers(getString(R.string.motorized_rocket_artillery), motRartCount)
+                } else {
+                        Snackbar.make(
+                            view,
+                            "Motorized Rocket Artillery is not available before 1939",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 R.id.header6 -> {
                     headers(getString(R.string.cavalry), motCavCount)
@@ -747,10 +755,26 @@ class TemplateActivity : AppCompatActivity() {
                     headers(getString(R.string.camel), motCamCount)
                 }
                 R.id.header8 -> {
-                    headers(getString(R.string.mechanized_infantry), mechInfCount)
+                    if (techYear > 1939) {
+                        headers(getString(R.string.mechanized_infantry), mechInfCount)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Mechanized Infantry is not available before 1940",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 R.id.header9 -> {
-                    headers(getString(R.string.amtrac_battalion), amtracCount)
+                    if (techYear > 1940) {
+                        headers(getString(R.string.amtrac_battalion), amtracCount)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "AMTRAC Battalion is not available before 1941",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 R.id.header10 -> {
                     headers(getString(R.string.armoured_car), armCarCount)
@@ -770,16 +794,40 @@ class TemplateActivity : AppCompatActivity() {
                     headers(getString(R.string.light_tank), lightTankCount)
                 }
                 R.id.header2 -> {
-                    headers(getString(R.string.medium_tank), mediumTankCount)
+                    if (techYear > 1938) {
+                        headers(getString(R.string.medium_tank), mediumTankCount)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Medium Tank is not available before 1939",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 R.id.header3 -> {
                     headers(getString(R.string.heavy_tank), heavyTankCount)
                 }
                 R.id.header4 -> {
-                    headers(getString(R.string.super_heavy_tank), superHeavyTankCount)
+                    if (techYear > 1942) {
+                        headers(getString(R.string.super_heavy_tank), superHeavyTankCount)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Super Heavy Tank is not available before 1943",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 R.id.header5 -> {
-                    headers(getString(R.string.modern_tank), modernTankCount)
+                    if (techYear > 1944) {
+                        headers(getString(R.string.modern_tank), modernTankCount)
+                    } else {
+                        Snackbar.make(
+                            view,
+                            "Modern Tank is not available before 1945",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
             true
