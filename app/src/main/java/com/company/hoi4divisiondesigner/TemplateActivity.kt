@@ -6,8 +6,10 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.hoi4divisiondesigner.databinding.ActivityTemplateBinding
+import com.google.android.material.snackbar.Snackbar
 
 class TemplateActivity : AppCompatActivity() {
     private lateinit var binding: ActivityTemplateBinding
@@ -694,7 +696,11 @@ class TemplateActivity : AppCompatActivity() {
                     headers(getString(R.string.anti_tank), infAtCount)
                 }
                 R.id.header5 -> {
-                    headers(getString(R.string.rocket_artillery), infRartCount)
+                    if (techYear > 1939) {
+                        headers(getString(R.string.rocket_artillery), infRartCount)
+                    } else {
+                        Snackbar.make(view, "Rocket Artillery is not available before 1940", Snackbar.LENGTH_LONG).show()
+                    }
                 }
                 R.id.header6 -> {
                     headers(getString(R.string.mountaineer), infMountCount)
