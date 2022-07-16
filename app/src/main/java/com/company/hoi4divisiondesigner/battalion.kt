@@ -11,8 +11,7 @@ data class battalion (val name : String, var speed: Double, val hp : Double, var
     companion object {
         private val infantry = battalion(R.string.infantry.toString(), 4.0, 25.0, 60.0, 0.3, 1.5,
             0.5, 0.07, 0.0, 0.0, 1000.0, 90.0, 50.0, 6.0,
-            1.0, 0.0, 23.1, 3.15, 0.0, 4.0, 2.0, 0.0
-        )
+            1.0, 0.0, 23.1, 3.15, 0.0, 4.0, 2.0, 0.0)
 
         private val artillery = battalion(R.string.artillery.toString(), 4.0, 0.6, 0.0, 0.1, 0.0,
             0.5, 0.2,0.0,0.0,500.0,120.0,126.0,27.5,2.0,

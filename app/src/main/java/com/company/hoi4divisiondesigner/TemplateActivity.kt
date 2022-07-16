@@ -1,12 +1,11 @@
 package com.company.hoi4divisiondesigner
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.company.hoi4divisiondesigner.databinding.ActivityTemplateBinding
 import com.google.android.material.snackbar.Snackbar
@@ -143,30 +142,31 @@ class TemplateActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     internal fun calculate() {
         val battalionsData = battalion.battalionData(techYear)
 
-        speed = mutableListOf<Double>()
-        hp = mutableListOf<Double>()
-        organization = mutableListOf<Double>()
-        recoveryRate = mutableListOf<Double>()
-        suppression = mutableListOf<Double>()
-        weight = mutableListOf<Double>()
-        supplyUse = mutableListOf<Double>()
-        fuelUse = mutableListOf<Double>()
-        fuelCap = mutableListOf<Double>()
-        manpower = mutableListOf<Double>()
-        trainingTime = mutableListOf<Double>()
-        industryCost = mutableListOf<Double>()
-        softAttack = mutableListOf<Double>()
-        hardAttack = mutableListOf<Double>()
-        airAttack = mutableListOf<Double>()
-        defence = mutableListOf<Double>()
-        breakthrough = mutableListOf<Double>()
-        armour = mutableListOf<Double>()
-        piercings = mutableListOf<Double>()
-        combatWidth = mutableListOf<Double>()
-        hardness = mutableListOf<Double>()
+        speed = mutableListOf()
+        hp = mutableListOf()
+        organization = mutableListOf()
+        recoveryRate = mutableListOf()
+        suppression = mutableListOf()
+        weight = mutableListOf()
+        supplyUse = mutableListOf()
+        fuelUse = mutableListOf()
+        fuelCap = mutableListOf()
+        manpower = mutableListOf()
+        trainingTime = mutableListOf()
+        industryCost = mutableListOf()
+        softAttack = mutableListOf()
+        hardAttack = mutableListOf()
+        airAttack = mutableListOf()
+        defence = mutableListOf()
+        breakthrough = mutableListOf()
+        armour = mutableListOf()
+        piercings = mutableListOf()
+        combatWidth = mutableListOf()
+        hardness = mutableListOf()
 
         for (items in battalionsData) {
             speed.add(items.speed)
@@ -686,7 +686,7 @@ class TemplateActivity : AppCompatActivity() {
     private fun addInfBat(view: View) {
         val popup = PopupMenu(this, view)
         popup.inflate(R.menu.infantry_battalion_menu)
-        popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+        popup.setOnMenuItemClickListener { item: MenuItem? ->
             when (item!!.itemId) {
                 R.id.header1 -> {
                     headers(getString(R.string.infantry), infInfCount)
@@ -704,7 +704,11 @@ class TemplateActivity : AppCompatActivity() {
                     if (techYear > 1939) {
                         headers(getString(R.string.rocket_artillery), infRartCount)
                     } else {
-                        Snackbar.make(view, "Rocket Artillery is not available before 1940", Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(
+                            view,
+                            "Rocket Artillery is not available before 1940",
+                            Snackbar.LENGTH_LONG
+                        ).show()
                     }
                 }
                 R.id.header6 -> {
@@ -721,14 +725,14 @@ class TemplateActivity : AppCompatActivity() {
                 }
             }
             true
-        })
+        }
         popup.show()
     }
 
     private fun addMotBat(view: View) {
         val popup = PopupMenu(this, view)
         popup.inflate(R.menu.motorized_battalion_menu)
-        popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+        popup.setOnMenuItemClickListener { item: MenuItem? ->
             when (item!!.itemId) {
                 R.id.header1 -> {
                     headers(getString(R.string.motorized_infantry), motInfCount)
@@ -745,7 +749,7 @@ class TemplateActivity : AppCompatActivity() {
                 R.id.header5 -> {
                     if (techYear > 1939) {
                         headers(getString(R.string.motorized_rocket_artillery), motRartCount)
-                } else {
+                    } else {
                         Snackbar.make(
                             view,
                             "Motorized Rocket Artillery is not available before 1940",
@@ -786,14 +790,14 @@ class TemplateActivity : AppCompatActivity() {
                 }
             }
             true
-        })
+        }
         popup.show()
     }
 
     private fun addArmBat(view: View) {
         val popup = PopupMenu(this, view)
         popup.inflate(R.menu.armoured_battalion_menu)
-        popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+        popup.setOnMenuItemClickListener { item: MenuItem? ->
             when (item!!.itemId) {
                 R.id.header1 -> {
                     headers(getString(R.string.light_tank), lightTankCount)
@@ -836,14 +840,14 @@ class TemplateActivity : AppCompatActivity() {
                 }
             }
             true
-        })
+        }
         popup.show()
     }
 
     private fun techYear(view: View) {
         val popup = PopupMenu(this, view)
         popup.inflate(R.menu.tech_year_layout)
-        popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+        popup.setOnMenuItemClickListener { item: MenuItem? ->
             when (item!!.itemId) {
                 R.id.header1 -> {
                     techYear = 1936
@@ -888,10 +892,11 @@ class TemplateActivity : AppCompatActivity() {
             }
             calculate()
             true
-        })
+        }
         popup.show()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun headers (name : String, count : Int){
         if (data.isEmpty() || batExists(data,name) || count==0){
             data.add(batData(name, 1))
