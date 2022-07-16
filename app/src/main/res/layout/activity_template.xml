@@ -27,37 +27,40 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageView
                     android:id="@+id/infBatButton"
-                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
+                    android:background="@drawable/infantry_cropped"
+                    android:contentDescription="@string/add_infantry"
                     android:text="@string/add_inf_battalion" />
 
-                <Button
+                <ImageView
                     android:id="@+id/motBatButton"
-                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
+                    android:background="@drawable/motorized_cropped"
+                    android:contentDescription="@string/add_motorized_battalion"
                     android:text="@string/add_motorized_battalion" />
 
-                <Button
+                <ImageView
                     android:id="@+id/armBatButton"
-                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
+                    android:background="@drawable/light_tank_cropped"
+                    android:contentDescription="@string/add_armoured_battalion"
                     android:text="@string/add_armoured_battalion" />
             </LinearLayout>
 
